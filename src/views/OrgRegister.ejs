@@ -1,0 +1,175 @@
+<!-- <!DOCTYPE html>
+<html>
+<head>
+  <title>Organisation Registration</title>
+  <link rel="stylesheet" href="orgRegister.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Organisation Registration</h1>
+    <form id="Organisation-register-form" action="register" method="post">
+        <div class="form-group">
+          <label for="confirm-password">Org Id</label>
+          <input type="text" id="id" name="id" placeholder="Org Id" required>
+        </div>
+        <div class="form-group">
+          <label for="legal-name">Organization Name</label>
+          <input type="text" id="legal-name" name="legalOrganizationName" placeholder="CentraAPIs Pvt. Ltd." >
+        </div>
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" placeholder="exaple@gmail.com" required>
+      </div>
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input type="password" id="password" name="password" placeholder="Password" required>
+      </div>
+      <div class="form-group">
+        <label for="gst-number">GST Number</label>
+        <input type="text" id="gst-number" name="gstNo" placeholder="GST123456789" >
+      </div>
+      <div class="form-group">
+        <label for="pan-number">PAN Number</label>
+        <input type="text" id="pan-number" name="panNo" placeholder="ABCDE1234F" >
+      </div>
+      <div class="form-group">
+        <label for="legal-name">Invoice Template Id</label>
+        <input type="text" id="legal-name" name="invoiceTemplateId" placeholder="TPL_001">
+      </div>
+      <div class="form-group">
+        <label for="display-name">Display Name</label>
+        <input type="text" id="display-name" name="displayName" placeholder="CentraAPIs Pvt. Ltd." >
+      </div>
+      <div class="form-group">
+        <label for="short-name">Short Name</label>
+        <input type="text" id="short-name" name="shortName" placeholder="CentraAPIs" >
+      </div>
+      <div class="form-group">
+        <label for="contactName">Contact Name</label>
+        <input type="text" id="contact-name" name="contactName" placeholder="John Doe" >
+      </div>
+      <div class="form-group">
+        <label for="display-name">Address Id</label>
+        <input type="text" id="address-Id" name="addressId" placeholder="add_000" >
+      </div>
+      <div class="form-group">
+        <label for="phone">Phone</label>
+        <input type="tel" id="phone" name="phone" placeholder="+1234567890" >
+      </div>
+      <div class="form-group" style="display: flex;">
+        <input type="checkbox" id="terms" name="terms" required>
+        <label for="terms">I agree to the <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a></label>
+      </div>
+      <div class="form-group">
+        <button type="submit">Register</button>
+      </div>
+    </form>
+  </div>
+</body>
+</html> -->
+
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Organisation Registration</title>
+  <link rel="stylesheet" href="orgRegister.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Organisation Registration</h1>
+    <% if (locals.error) { %>
+      <div><%= locals.error %></div>
+    <% } %>
+
+    <% if (locals.success) { %>
+      <div>Registration successful!</div>
+      <div>Organization: <%= locals.organization %></div>
+      <div>Token: <%= locals.token %></div>
+    <% } else { %>
+      <form id="Organisation-register-form" action="/api/organizations/register" method="post">
+        <div class="form-group">
+          <label for="confirm-password">Org Id</label>
+          <input type="text" id="id" name="id" placeholder="Org Id" required>
+        </div>
+        <div class="form-group">
+          <label for="legal-name">Organization Name</label>
+          <input type="text" id="legal-name" name="legalOrganizationName" placeholder="CentraAPIs Pvt. Ltd.">
+        </div>
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" placeholder="exaple@gmail.com" required>
+        </div>
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input type="password" id="password" name="password" placeholder="Password" required>
+        </div>
+        <div class="form-group">
+          <label for="gst-number">GST Number</label>
+          <input type="text" id="gst-number" name="gstNo" placeholder="GST123456789">
+        </div>
+        <div class="form-group">
+          <label for="pan-number">PAN Number</label>
+          <input type="text" id="pan-number" name="panNo" placeholder="ABCDE1234F">
+        </div>
+        <div class="form-group">
+          <label for="legal-name">Invoice Template Id</label>
+          <input type="text" id="legal-name" name="invoiceTemplateId" placeholder="TPL_001">
+        </div>
+        <div class="form-group">
+          <label for="display-name">Display Name</label>
+          <input type="text" id="display-name" name="displayName" placeholder="CentraAPIs Pvt. Ltd.">
+        </div>
+        <div class="form-group">
+          <label for="short-name">Short Name</label>
+          <input type="text" id="short-name" name="shortName" placeholder="CentraAPIs">
+        </div>
+        <div class="form-group">
+          <label for="contactName">Contact Name</label>
+          <input type="text" id="contact-name" name="contactName" placeholder="John Doe">
+        </div>
+        <div class="form-group">
+          <label for="display-name">Address Id</label>
+          <input type="text" id="address-Id" name="addressId" placeholder="add_000">
+        </div>
+        <div class="form-group">
+          <label for="phone">Phone</label>
+          <input type="tel" id="phone" name="phone" placeholder="+1234567890">
+        </div>
+        <div class="form-group" style="display: flex;">
+          <input type="checkbox" id="terms" name="terms" required>
+          <label for="terms">I agree to the <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a></label>
+        </div>
+        <div class="form-group">
+          <button type="submit">Register</button>
+        </div>
+      </form>
+    <% } %>
+  </div>
+
+  <script>
+    const form = document.getElementById('Organisation-register-form');
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const formData = new FormData(form);
+      const response = await fetch('/api/organizations/register', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(Object.fromEntries(formData))
+      });
+      const data = await response.json();
+      if (response.ok) {
+        // Handle successful registration
+        console.log(data);
+      } else {
+        // Handle registration error
+        console.error(data.error);
+      }
+    });
+  </script>
+</body>
+</html>
