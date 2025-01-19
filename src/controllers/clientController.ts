@@ -2,8 +2,7 @@ import { Request, Response } from 'express';
 import Client from '../models/Client';
 
 export const createClient = async (req: Request, res: Response) => {
-  const clientDetails=req.body
-
+  const clientDetails=req.body;
   try {
     const newClient = await Client.create( clientDetails);
 

@@ -1,4 +1,4 @@
-import express from "express";
+import express, { NextFunction, Request, Response } from "express";
 import sequelize from "./PostgresDB/pgConfig";
 import clientRoutes from "./routes/clientRoutes";
 import sowRoutes from "./routes/sowRoutes";
@@ -9,6 +9,7 @@ import invoiceLineItemRoutes from "./routes/invoiceLineItemRoutes";
 import paymentRoutes from "./routes/PaymentRoutes";
 import organizationRoutes from "./routes/organizationRoutes";
 import creaditionals from "./commons/creaditionals";
+import { manipulatePayload } from "./middleware/manipulate";
 
 
 // import expressLayout from 'express-ejs-layouts'
@@ -22,7 +23,7 @@ const PORT = creaditionals.App_POrt;
 // Middleware
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
-
+ 
 
 // setting the view Engine
 // app.set('view engine', 'ejs');
@@ -45,6 +46,55 @@ app.use("/api/sow-payment-plan-line-items",sowPaymentPlanLineItemRoutes);
 app.use("/api/invoices",invoiceRoutes);
 app.use("/api/invoice-line-items",invoiceLineItemRoutes);
 app.use("/api/payments",paymentRoutes);
+
+// app.post("/payload",(req:Request,res:Response)=>{
+//   const data=req.body
+//   const items=manipulatePayload(data)
+// })
+
+// export async function sleep() {
+//   setTimeout(()=>{
+//       console.log("hello")
+//   }),7000
+// }
+
+
+// sleep()
+
+export async function middle(req:Request,res:Response,next:NextFunction) {
+  const data=req.body
+  try {
+    console.log(data);
+    next()
+  } catch (error) {
+    throw error
+  }
+}
+
+
+app.use("/",middle,(req:Request,res:Response)=>{
+  const data=req.body
+  try {
+  } catch (error) {
+    throw error
+  }
+})
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

@@ -14,7 +14,7 @@ const today = new Date();
 const startOfDay = new Date(today.setHours(0, 0, 0, 0));
 const endOfDay = new Date(today.setHours(23, 59, 59, 999));
     // Find all SOWPaymentPlans with a planned invoice date of today
-    console.log([startOfDay, endOfDay]);
+    // console.log([startOfDay, endOfDay]);
     const sowPaymentPlans = await SOWPaymentPlan.findAll({
       where: {
         plannedInvoiceDate: {
